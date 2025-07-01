@@ -476,6 +476,8 @@ require("lazy").setup({
 			local servers = {
 				clangd = {},
 				rust_analyzer = {},
+				pyright = {},
+				tinymist = {},
 				-- See `:help lspconfig-all` for a list of all the pre-configured LSPs
 
 				lua_ls = {
@@ -775,6 +777,12 @@ require("lazy").setup({
 				hop.hint_lines({})
 			end, { remap = true })
 		end,
+	},
+	{ -- Typst Previewer
+		"chomosuke/typst-preview.nvim",
+		lazy = false,
+		version = "1.*",
+		opts = {},
 	},
 }, {
 	ui = {
