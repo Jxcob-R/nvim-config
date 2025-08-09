@@ -102,6 +102,9 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- I'm sick of using :w to save, and I'm tired of pretending I'm not
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Easy save" })
+
 -- Set 'Y' to copy whole line
 vim.keymap.set("n", "Y", "yy", { desc = "Remap line yanking" })
 
@@ -339,7 +342,7 @@ require("lazy").setup({
 			-- It's also possible to pass additional configuration options.
 			--  See `:help telescope.builtin.live_grep()` for information about particular keys
 			vim.keymap.set("n", "<leader>s/", function()
-				builtin.live_gre({
+				builtin.live_grep({
 					grep_open_files = true,
 					prompt_title = "Live Grep in Open Files",
 				})
@@ -521,7 +524,7 @@ require("lazy").setup({
 
 	{ -- Autoformat
 		"stevearc/conform.nvim",
-		event = { "BufWritePre" },
+		lazy = false,
 		cmd = { "ConformInfo" },
 		keys = {
 			{
